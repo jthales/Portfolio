@@ -9,10 +9,18 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "pt",
+        "locales": {
+          "en-US": "src/locale/messages.en.xlf",
+          "fr-CA": "src/locale/messages.fr.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "localize": true,
             "outputPath": "dist/portfolio",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -51,7 +59,20 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "localize": ["pt"]
+            },
+            "en-US": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "localize": ["en-US"]
+            },
+            "fr-CA": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "localize": ["fr-CA"]
             }
           },
           "defaultConfiguration": "production"
@@ -64,6 +85,12 @@
             },
             "development": {
               "buildTarget": "portfolio:build:development"
+            },
+            "en-US": {
+              "buildTarget": "portfolio:build:en-US"
+            },
+            "fr-CA": {
+              "buildTarget": "portfolio:build:fr-CA"
             }
           },
           "defaultConfiguration": "development"
